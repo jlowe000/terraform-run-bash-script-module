@@ -1,4 +1,8 @@
 resource "null_resource" "run_create_script" {
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+  
   provisioner "local-exec" {
     working_dir = var.working_dir
     environment = var.environment
